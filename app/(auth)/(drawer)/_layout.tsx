@@ -17,57 +17,57 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { DrawerActions } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
-// import { getChats, renameChat } from '@/utils/Database';
-// import { useSQLiteContext } from 'expo-sqlite/next';
+import { getChats, renameChat } from '@/utils/Database';
+import { useSQLiteContext } from 'expo-sqlite/next';
 import { useDrawerStatus } from '@react-navigation/drawer';
-// import { Chat } from '@/utils/Interfaces';
+import { Chat } from '@/utils/interfaces';
  import * as ContextMenu from 'zeego/context-menu';
 // import { useRevenueCat } from '@/providers/RevenueCat';
 import { Keyboard } from 'react-native';
 
 export const CustomDrawerContent = (props: any) => {
   const { bottom, top } = useSafeAreaInsets();
-//   const db = useSQLiteContext();
+   const db = useSQLiteContext();
   const isDrawerOpen = useDrawerStatus() === 'open';
-//   const [history, setHistory] = useState<Chat[]>([]);
+   const [history, setHistory] = useState<Chat[]>([]);
   const router = useRouter();
 
-//   useEffect(() => {
-//     loadChats();
-//     Keyboard.dismiss();
-//   }, [isDrawerOpen]);
+  useEffect(() => {
+    loadChats();
+    Keyboard.dismiss();
+  }, [isDrawerOpen]);
 
-//   const loadChats = async () => {
-//     // Load chats from SQLite
-//     const result = (await getChats(db)) as Chat[];
-//     setHistory(result);
-//   };
+  const loadChats = async () => {
+    // Load chats from SQLite
+    const result = (await getChats(db)) as Chat[];
+    setHistory(result);
+  };
 
   const onDeleteChat = (chatId: number) => {
-    // Alert.alert('Delete Chat', 'Are you sure you want to delete this chat?', [
-    //   {
-    //     text: 'Cancel',
-    //     style: 'cancel',
-    //   },
-    //   {
-    //     text: 'Delete',
-    //     onPress: async () => {
-    //       // Delete the chat
-    //       await db.runAsync('DELETE FROM chats WHERE id = ?', chatId);
-    //       loadChats();
-    //     },
-    //   },
-    // ]);
+    Alert.alert('Delete Chat', 'Are you sure you want to delete this chat?', [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'Delete',
+        onPress: async () => {
+          // Delete the chat
+          await db.runAsync('DELETE FROM chats WHERE id = ?', chatId);
+          loadChats();
+        },
+      },
+    ]);
   };
 
   const onRenameChat = (chatId: number) => {
-    // Alert.prompt('Rename Chat', 'Enter a new name for the chat', async (newName) => {
-    //   if (newName) {
-    //     // Rename the chat
-    //     await renameChat(db, chatId, newName);
-    //     loadChats();
-    //   }
-    // });
+    Alert.prompt('Rename Chat', 'Enter a new name for the chat', async (newName) => {
+      if (newName) {
+        // Rename the chat
+        await renameChat(db, chatId, newName);
+        loadChats();
+      }
+    });
   };
 
   return (
@@ -87,7 +87,7 @@ export const CustomDrawerContent = (props: any) => {
         {...props}
         contentContainerStyle={{ backgroundColor: '#fff', paddingTop: 0 }}>
         <DrawerItemList {...props} />
-        {/* {history.map((chat) => (
+        {history.map((chat) => (
           <ContextMenu.Root key={chat.id}>
             <ContextMenu.Trigger>
               <DrawerItem
@@ -125,7 +125,7 @@ export const CustomDrawerContent = (props: any) => {
               </ContextMenu.Item>
             </ContextMenu.Content>
           </ContextMenu.Root>
-        ))} */}
+        ))}
       </DrawerContentScrollView>
 
       <View
@@ -140,7 +140,7 @@ export const CustomDrawerContent = (props: any) => {
               source={{ uri: 'https://galaxies.dev/img/meerkat_2.jpg' }}
               style={styles.avatar}
             />
-            <Text style={styles.userName}>Mika Meerkat</Text>
+            <Text style={styles.userName}>Sumedh Raj</Text>
             <Ionicons name="ellipsis-horizontal" size={24} color={Colors.greyLight} />
           </TouchableOpacity>
         </Link>
@@ -202,7 +202,7 @@ const Layout = () => {
           ),
         }}
       />
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name="(chat)/[id]"
         options={{
           drawerItemStyle: {
@@ -221,7 +221,7 @@ const Layout = () => {
             </Link>
           ),
         }}
-      /> */}
+      />
       <Drawer.Screen
         name="dalle"
         options={{

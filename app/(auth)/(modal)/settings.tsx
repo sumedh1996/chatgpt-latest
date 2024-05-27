@@ -9,9 +9,8 @@ import { useMMKVString } from 'react-native-mmkv';
 const Settings = () => {
   const [key, setKey] = useMMKVString('apikey', keyStorage);
   const [organization, setOrganization] = useMMKVString('org', keyStorage);
-
-  const [apiKey, setApiKey] = useState('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');
-  const [org, setOrg] = useState('Sumedh-dev');
+  const [apiKey, setApiKey] = useState('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');
+  const [org, setOrg] = useState('org-NikF3MPnYONi6uRcAS1aWVvU');
   const router = useRouter();
 
   const { signOut } = useAuth();
@@ -20,7 +19,7 @@ const Settings = () => {
     setKey(apiKey);
     setOrganization(org);
     console.log('API Key:',apiKey, 'Organization:', org)
-     router.push('(auth)/(drawer)/(chat)/new');
+     router.navigate('(auth)/(drawer)/(chat)/new');
   };
 
   const removeApiKey = async () => {
