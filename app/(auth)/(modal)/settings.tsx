@@ -9,8 +9,8 @@ import { useMMKVString } from 'react-native-mmkv';
 const Settings = () => {
   const [key, setKey] = useMMKVString('apikey', keyStorage);
   const [organization, setOrganization] = useMMKVString('org', keyStorage);
-  const [apiKey, setApiKey] = useState('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');
-  const [org, setOrg] = useState('org-NikF3MPnYONi6uRcAS1aWVvU');
+  const [apiKey, setApiKey] = useState('');
+  const [org, setOrg] = useState('');
   const router = useRouter();
 
   const { signOut } = useAuth();
