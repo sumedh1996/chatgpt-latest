@@ -202,7 +202,7 @@ const Layout = () => {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="(chat)/[id]"
         options={{
           drawerItemStyle: {
@@ -221,7 +221,7 @@ const Layout = () => {
             </Link>
           ),
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="dalle"
         options={{
