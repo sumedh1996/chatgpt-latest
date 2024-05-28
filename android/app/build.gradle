@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.supersimon.chatgpt'
+    namespace 'com.sumedhraj.chatgpt'
     defaultConfig {
-        applicationId 'com.supersimon.chatgpt'
+        applicationId 'com.sumedhraj.chatgpt'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

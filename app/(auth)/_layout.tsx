@@ -52,7 +52,7 @@ const Layout = () => {
               ),
             }}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="(modal)/purchase"
             options={{
               headerTitle: '',
@@ -66,7 +66,7 @@ const Layout = () => {
                 </TouchableOpacity>
               ),
             }}
-          />
+          /> */}
         </Stack>
       </SQLiteProvider>
     // </RevenueCatProvider>

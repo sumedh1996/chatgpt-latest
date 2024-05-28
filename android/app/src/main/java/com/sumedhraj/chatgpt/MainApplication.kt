@@ -1,4 +1,4 @@
-package com.supersimon.chatgpt
+package com.sumedhraj.chatgpt
 
 import android.app.Application
 import android.content.res.Configuration

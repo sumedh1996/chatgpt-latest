@@ -28,7 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>chatgpt</string>
-          <string>com.supersimon.chatgpt</string>
+          <string>com.sumedhraj.chatgpt</string>
         </array>
       </dict>
       <dict>

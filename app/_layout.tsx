@@ -77,6 +77,7 @@ const InitialLayout = () => {
         options={{
           presentation: 'modal',
           title: '',
+          headerShown: false,
           headerTitleStyle: {
             fontFamily: 'mon-sb',
           },
